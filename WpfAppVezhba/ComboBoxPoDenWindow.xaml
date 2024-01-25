@@ -1,0 +1,331 @@
+﻿<Window x:Class="WpfAppVezhba.ComboBoxPoDenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppVezhba"
+        mc:Ignorable="d"
+        Title="ComboBoxPoDenWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <Button 
+                    x:Name="smeniNedela" 
+                    Content="Следна недела" 
+                    Click="smeniNedela_Click"
+                    Height="30"
+                    Width="50"
+                    Margin="5, 5, 5, 5"/>
+                <Calendar 
+                    x:Name="cldr"
+                   IsEnabled="True"
+                    SelectionMode="SingleRange" 
+                    IsTodayHighlighted="True"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    DisplayDate="{Binding DisplayDate}"
+                    DisplayDateStart="1/1/2023"
+                    DisplayDateEnd="12/31/2024"
+                    SelectedDatesChanged="cldr_SelectedDatesChanged">
+                    <!--
+                    <Calendar.BlackoutDates>
+                        <CalendarDateRange Start="1/2/2023" End="1/4/2023"/>
+                        <CalendarDateRange Start="1/9/2023" End="1/9/2023"/>
+                        <CalendarDateRange Start="1/16/2023" End="1/16/2023"/>
+                        <CalendarDateRange Start="1/23/2023" End="1/25/2023"/>
+                        <CalendarDateRange Start="1/30/2023" End="1/30/2023"/>
+                    </Calendar.BlackoutDates>
+                    -->
+                    <!--
+                    <Calendar.SelectedDates>
+                        <sys:DateTime>1/5/2023</sys:DateTime>
+                        <sys:DateTime>1/12/2023</sys:DateTime>
+                        <sys:DateTime>1/14/2023</sys:DateTime>
+                        <sys:DateTime>1/13/2023</sys:DateTime>
+                        <sys:DateTime>1/15/2023</sys:DateTime>
+                        <sys:DateTime>1/27/2023</sys:DateTime>
+                        <sys:DateTime>4/2/2023</sys:DateTime>
+                    </Calendar.SelectedDates>
+                    -->
+                </Calendar>
+            </StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Row="0">
+                    <StackPanel Orientation="Vertical">
+                        <RadioButton GroupName="bojaVreme" Content="Има внесено 40 часови за оваа недела" x:Name="imaVremeChkBox" Margin="5, 5, 5, 5" Checked="imaVremeChkBox_Checked"/>
+                        <RadioButton GroupName="bojaVreme" Content="Нема внесено време за оваа недела" x:Name="nemaVremeChkBox" Margin="5, 5, 5, 5" Checked="nemaVremeChkBox_Checked"/>
+                        <RadioButton GroupName="bojaVreme" Content="Има внесено помалку од 40 часа време за оваа недела" x:Name="imaPomalkuVremeChkBox" Margin="5, 5, 5, 5" Checked="imaPomalkuVremeChkBox_Checked"/>
+                    </StackPanel>
+                    <TextBlock Text="{Binding Mesec}" Margin="5, 5, 5, 5"/>
+                    <TextBlock Text=" - " Margin="5, 5, 5, 5"/>
+                    <TextBlock Text="{Binding RbrNedelaVoGodina}" Margin="5, 5, 5, 5"/>
+                </StackPanel>
+                <Grid  Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <Button 
+                        x:Name="pretNedelaBtn"
+                        Content="&lt;&lt;" 
+                        Grid.Row="0" 
+                        Grid.Column="0"
+                        Click="pretNedelaBtn_Click"
+                        Margin="5, 5, 5, 5"
+                        Height="30"
+                        Width="50"/>
+                    <StackPanel 
+                        Orientation="Vertical"
+                        Grid.Row="0" 
+                        Grid.Column="1"
+                        Grid.ColumnSpan="5">
+
+                        <DataGrid 
+                        Name="sedmicaDG"
+                        AutoGenerateColumns="False"
+                        ItemsSource="{Binding MesecPoSedmici}" 
+                        ColumnWidth="*"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding IzbranaSedmica}"
+                        IsEnabled="False"
+                        Margin="5, 5, 5, 5">
+                            <DataGrid.Resources>
+                                <Style TargetType="{x:Type DataGridCell}">
+                                    <Style.Triggers>
+                                        <Trigger Property="DataGridCell.IsSelected" Value="True">
+                                            <Setter Property="Background" Value="{Binding DataContext.BojaVreme, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                                <!--DataTemplate for Published Date column defined in Grid.Resources.  PublishDate is a property on the ItemsSource of type DateTime -->
+                                <DataTemplate x:Key="DateTemplate" >
+                                    <StackPanel Width="20" Height="30">
+                                        <Border Background="LightBlue" BorderBrush="Black" BorderThickness="1">
+                                            <TextBlock Text="{Binding Ponedelnik.Den}" FontSize="8" HorizontalAlignment="Center" />
+                                        </Border>
+                                        <Border Background="White" BorderBrush="Black" BorderThickness="1">
+                                            <ComboBox />
+                                        </Border>
+                                    </StackPanel>
+                                </DataTemplate>
+                                <!--DataTemplate for the Published Date column when in edit mode. -->
+                                <DataTemplate x:Key="EditingDateTemplate">
+                                    <DatePicker SelectedDate="{Binding Id}"  />
+                                </DataTemplate>
+                            </DataGrid.Resources>
+
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Пон" Binding="{Binding Ponedelnik.Den}" CanUserSort="False" CanUserReorder="False"/>
+                                <DataGridTextColumn Header="Вто" Binding="{Binding Vtornik.Den}" CanUserSort="False" CanUserReorder="False"/>
+                                <DataGridTextColumn Header="Сре" Binding="{Binding Sreda.Den}" CanUserSort="False" CanUserReorder="False"/>
+                                <DataGridTextColumn Header="Чет" Binding="{Binding Chetvrtok.Den}" CanUserSort="False" CanUserReorder="False"/>
+                                <DataGridTextColumn Header="Пет" Binding="{Binding Petok.Den}" CanUserSort="False" CanUserReorder="False"/>
+                                <DataGridTextColumn Header="Саб" Binding="{Binding Sabota.Den}" CanUserSort="False" CanUserReorder="False"/>
+                                <DataGridTextColumn Header="Нед" Binding="{Binding Nedela.Den}" CanUserSort="False" CanUserReorder="False"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <DataGrid 
+                            Name="sedmicaNovaDG"
+                            AutoGenerateColumns="False"
+                            ItemsSource="{Binding MesecPoSedmici}" 
+                            ColumnWidth="*"
+                            SelectionMode="Single"
+                            SelectedItem="{Binding IzbranaSedmica}"
+                            IsEnabled="True"
+                            Margin="5, 5, 5, 5"
+                            PreviewKeyUp="sedmicaNovaDG_PreviewKeyUp">
+                            <DataGrid.Resources>
+                                <Style TargetType="{x:Type DataGridCell}">
+                                    <Style.Triggers>
+                                        <Trigger Property="DataGridCell.IsSelected" Value="True">
+                                            <Setter Property="Background" Value="{Binding DataContext.BojaVreme, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+                                            <!--<Setter Property="Background" Value="{Binding Path=DataContext.IzbranaSedmica.BojaVreme,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type DataGrid}}}" />-->
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                                <!-- ponedelnik -->
+                                <!--DataTemplate for Published Date column defined in Grid.Resources.  PublishDate is a property on the ItemsSource of type DateTime -->
+                                <DataTemplate x:Key="PonedelnikDT">
+                                    <StackPanel Orientation="Vertical" Margin="5, 5, 5, 5">
+                                        <Border Background="LightBlue" BorderBrush="Black" BorderThickness="1">
+                                            <TextBlock Text="{Binding Ponedelnik.Den}" FontSize="12" HorizontalAlignment="Center" />
+                                        </Border>
+                                        <Border Background="LightGray" BorderBrush="Black" BorderThickness="1">
+                                            <TextBlock Text="{Binding Ponedelnik.OdrabotenoVreme.TextLabel}" FontSize="12" HorizontalAlignment="Center" />
+                                        </Border>
+                                    </StackPanel>
+                                </DataTemplate>
+                                <!-- IsEnabled="{Binding DataContext.IzbranaSedmica.Izbrana, RelativeSource={RelativeSource AncestorType=DataGrid}}"  -->
+                                <!--DataTemplate for the Published Date column when in edit mode. -->
+                                <DataTemplate x:Key="PonedelnikEDT">
+                                    <ComboBox 
+                                        Margin="5,5,5,5" 
+                                        ItemsSource="{Binding Ponedelnik.ListaIzborZaOdrabotenoVreme}" 
+                                        SelectedItem="{Binding Ponedelnik.OdrabotenoVreme}" 
+                                        DisplayMemberPath="TextLabel"/>
+                                </DataTemplate>
+
+                                <!-- vtornik -->
+                                <DataTemplate x:Key="VtornikDT">
+                                    <StackPanel Orientation="Vertical" Margin="5, 5, 5, 5">
+                                        <Border Background="LightBlue" BorderBrush="Black" BorderThickness="1">
+                                            <TextBlock Text="{Binding Vtornik.Den}" FontSize="12" HorizontalAlignment="Center" />
+                                        </Border>
+                                        <Border Background="LightGray" BorderBrush="Black" BorderThickness="1">
+                                            <TextBlock Text="{Binding Vtornik.OdrabotenoVreme.TextLabel}" FontSize="12" HorizontalAlignment="Center" />
+                                        </Border>
+                                    </StackPanel>
+                                </DataTemplate>
+                                <!--DataTemplate for the Published Date column when in edit mode. -->
+                                <DataTemplate x:Key="VtornikEDT">
+                                    <ComboBox 
+                                        Margin="5,5,5,5" 
+                                        ItemsSource="{Binding Vtornik.ListaIzborZaOdrabotenoVreme}" 
+                                        SelectedItem="{Binding Vtornik.OdrabotenoVreme}" 
+                                        DisplayMemberPath="TextLabel"/>
+                                </DataTemplate>
+
+                                <!-- sreda -->
+                                <DataTemplate x:Key="SredaDT">
+                                    <StackPanel Orientation="Vertical" Margin="5, 5, 5, 5">
+                                        <Border Background="LightBlue" BorderBrush="Black" BorderThickness="1">
+                                            <TextBlock Text="{Binding Sreda.Den}" FontSize="12" HorizontalAlignment="Center" />
+                                        </Border>
+                                        <Border Background="LightGray" BorderBrush="Black" BorderThickness="1">
+                                            <TextBlock Text="{Binding Sreda.OdrabotenoVreme.TextLabel}" FontSize="12" HorizontalAlignment="Center" />
+                                        </Border>
+                                    </StackPanel>
+                                </DataTemplate>
+                                <!--DataTemplate for the Published Date column when in edit mode. -->
+                                <DataTemplate x:Key="SredaEDT">
+                                    <ComboBox 
+                                        Margin="5,5,5,5" 
+                                        ItemsSource="{Binding Sreda.ListaIzborZaOdrabotenoVreme}" 
+                                        SelectedItem="{Binding Sreda.OdrabotenoVreme}" 
+                                        DisplayMemberPath="TextLabel"/>
+                                </DataTemplate>
+
+                                <!-- chetvrtok -->
+                                <DataTemplate x:Key="ChetvrtokDT">
+                                    <StackPanel Orientation="Vertical" Margin="5, 5, 5, 5">
+                                        <Border Background="LightBlue" BorderBrush="Black" BorderThickness="1">
+                                            <TextBlock Text="{Binding Chetvrtok.Den}" FontSize="12" HorizontalAlignment="Center" />
+                                        </Border>
+                                        <Border Background="LightGray" BorderBrush="Black" BorderThickness="1">
+                                            <TextBlock Text="{Binding Chetvrtok.OdrabotenoVreme.TextLabel}" FontSize="12" HorizontalAlignment="Center" />
+                                        </Border>
+                                    </StackPanel>
+                                </DataTemplate>
+                                <!--DataTemplate for the Published Date column when in edit mode. -->
+                                <DataTemplate x:Key="ChetvrtokEDT">
+                                    <ComboBox 
+                                        Margin="5,5,5,5" 
+                                        ItemsSource="{Binding Chetvrtok.ListaIzborZaOdrabotenoVreme}" 
+                                        SelectedItem="{Binding Chetvrtok.OdrabotenoVreme}" 
+                                        DisplayMemberPath="TextLabel"/>
+                                </DataTemplate>
+
+                                <!-- petok -->
+                                <DataTemplate x:Key="PetokDT">
+                                    <StackPanel Orientation="Vertical" Margin="5, 5, 5, 5">
+                                        <Border Background="LightBlue" BorderBrush="Black" BorderThickness="1">
+                                            <TextBlock Text="{Binding Petok.Den}" FontSize="12" HorizontalAlignment="Center" />
+                                        </Border>
+                                        <Border Background="LightGray" BorderBrush="Black" BorderThickness="1">
+                                            <TextBlock Text="{Binding Petok.OdrabotenoVreme.TextLabel}" FontSize="12" HorizontalAlignment="Center" />
+                                        </Border>
+                                    </StackPanel>
+                                </DataTemplate>
+                                <!--DataTemplate for the Published Date column when in edit mode. -->
+                                <DataTemplate x:Key="PetokEDT">
+                                    <ComboBox 
+                                        Margin="5,5,5,5" 
+                                        ItemsSource="{Binding Petok.ListaIzborZaOdrabotenoVreme}" 
+                                        SelectedItem="{Binding Petok.OdrabotenoVreme}" 
+                                        DisplayMemberPath="TextLabel"/>
+                                </DataTemplate>
+
+                                <!-- sabota -->
+                                <DataTemplate x:Key="SabotaDT">
+                                    <StackPanel Orientation="Vertical" Margin="5, 5, 5, 5">
+                                        <Border Background="LightBlue" BorderBrush="Black" BorderThickness="1">
+                                            <TextBlock Text="{Binding Sabota.Den}" FontSize="12" HorizontalAlignment="Center" />
+                                        </Border>
+                                        <Border Background="LightGray" BorderBrush="Black" BorderThickness="1">
+                                            <TextBlock Text="{Binding Sabota.OdrabotenoVreme.TextLabel}" FontSize="12" HorizontalAlignment="Center" />
+                                        </Border>
+                                    </StackPanel>
+                                </DataTemplate>
+                                <!--DataTemplate for the Published Date column when in edit mode. -->
+                                <DataTemplate x:Key="SabotaEDT">
+                                    <ComboBox 
+                                        Margin="5,5,5,5" 
+                                        ItemsSource="{Binding Sabota.ListaIzborZaOdrabotenoVreme}" 
+                                        SelectedItem="{Binding Sabota.OdrabotenoVreme}" 
+                                        DisplayMemberPath="TextLabel"/>
+                                </DataTemplate>
+
+                                <!-- nedela -->
+                                <DataTemplate x:Key="NedelaDT">
+                                    <StackPanel Orientation="Vertical" Margin="5, 5, 5, 5">
+                                        <Border Background="LightBlue" BorderBrush="Black" BorderThickness="1">
+                                            <TextBlock Text="{Binding Nedela.Den}" FontSize="12" HorizontalAlignment="Center" />
+                                        </Border>
+                                        <Border Background="LightGray" BorderBrush="Black" BorderThickness="1">
+                                            <TextBlock Text="{Binding Nedela.OdrabotenoVreme.TextLabel}" FontSize="12" HorizontalAlignment="Center" />
+                                        </Border>
+                                    </StackPanel>
+                                </DataTemplate>
+                                <!--DataTemplate for the Published Date column when in edit mode. -->
+                                <DataTemplate x:Key="NedelaEDT">
+                                    <ComboBox 
+                                        Margin="5,5,5,5" 
+                                        ItemsSource="{Binding Nedela.ListaIzborZaOdrabotenoVreme}" 
+                                        SelectedItem="{Binding Nedela.OdrabotenoVreme}" 
+                                        DisplayMemberPath="TextLabel"/>
+                                </DataTemplate>
+                            </DataGrid.Resources>
+
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Рбр. Седмица" Binding="{Binding RbrSedmicaVoGodinaTxt}" CanUserSort="False" CanUserReorder="False"/>
+                                <DataGridTemplateColumn Header="Пон" CanUserSort="False" CanUserReorder="False" CellTemplate="{StaticResource PonedelnikDT}" CellEditingTemplate="{StaticResource PonedelnikEDT}"/>
+                                <DataGridTemplateColumn Header="Вто" CanUserSort="False" CanUserReorder="False" CellTemplate="{StaticResource VtornikDT}" CellEditingTemplate="{StaticResource VtornikEDT}"/>
+                                <DataGridTemplateColumn Header="Сре" CanUserSort="False" CanUserReorder="False" CellTemplate="{StaticResource SredaDT}" CellEditingTemplate="{StaticResource SredaEDT}"/>
+                                <DataGridTemplateColumn Header="Чет" CanUserSort="False" CanUserReorder="False" CellTemplate="{StaticResource ChetvrtokDT}" CellEditingTemplate="{StaticResource ChetvrtokEDT}"/>
+                                <DataGridTemplateColumn Header="Пет" CanUserSort="False" CanUserReorder="False" CellTemplate="{StaticResource PetokDT}" CellEditingTemplate="{StaticResource PetokEDT}"/>
+                                <DataGridTemplateColumn Header="Саб" CanUserSort="False" CanUserReorder="False" CellTemplate="{StaticResource SabotaDT}" CellEditingTemplate="{StaticResource SabotaEDT}"/>
+                                <DataGridTemplateColumn Header="Нед" CanUserSort="False" CanUserReorder="False" CellTemplate="{StaticResource NedelaDT}" CellEditingTemplate="{StaticResource NedelaEDT}"/>
+                                <DataGridTextColumn Header="Збир" Binding="{Binding OdrabotenoVreme.TextLabel}" CanUserSort="False" CanUserReorder="False"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                    <Button 
+                        x:Name="sledNedelaBtn"
+                        Content="&gt;&gt;" 
+                        Grid.Row="0" 
+                        Grid.Column="6"
+                        Click="sledNedelaBtn_Click"
+                        Margin="5, 5, 5, 5"
+                        Height="30"
+                        Width="50"/>
+                </Grid>
+            </Grid>
+            <StatusBar>
+                <TextBlock x:Name="statusBarLbl"/>
+            </StatusBar>
+        </StackPanel>
+    </Grid>
+</Window>
