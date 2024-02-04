@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="106f8b2c81904f2391acb46e13f35027" Name="Diagram1">
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.DatabaseLog" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.DimAccount" Width="1.5" PointX="6.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.DimCurrency" Width="1.5" PointX="4.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.DimCustomer" Width="1.5" PointX="6.75" PointY="31.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.DimDate" Width="1.5" PointX="0.75" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.DimDepartmentGroup" Width="1.5" PointX="6.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.DimEmployee" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.DimGeography" Width="1.5" PointX="1.5" PointY="60.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.DimOrganization" Width="1.5" PointX="6.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.DimProduct" Width="1.5" PointX="0.75" PointY="34.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.DimProductCategory" Width="1.5" PointX="1.5" PointY="49.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.DimProductSubcategory" Width="1.5" PointX="1.5" PointY="45" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.DimPromotion" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.DimReseller" Width="1.5" PointX="0.75" PointY="53.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.DimSalesReason" Width="1.5" PointX="6.75" PointY="39.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.DimSalesTerritory" Width="1.5" PointX="1.5" PointY="30.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.DimScenario" Width="1.5" PointX="6.75" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.FactAdditionalInternationalProductDescription" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.FactCallCenter" Width="1.5" PointX="3" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.FactCurrencyRate" Width="1.5" PointX="6" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.FactInternetSales" Width="1.5" PointX="9" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.FactProductInventory" Width="1.5" PointX="6" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.FactResellerSales" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.FactSalesQuota" Width="1.5" PointX="6" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.FactSurveyResponse" Width="1.5" PointX="3" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.ProspectiveBuyer" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.sysdiagrams" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.FactFinance" Width="1.5" PointX="9" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.DimAccount_FactFinance_View1" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.DimReseller_DimGeogrpahy_FactResellerSales_View1" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.vAssocSeqLineItems" Width="1.5" PointX="8.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.vAssocSeqOrders" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.vDMPrep" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.vTargetMail" Width="1.5" PointX="12.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdventureWorksDW2017Model.vTimeSeries" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_DimAccount_DimAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactFinance_DimAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_DimOrganization_DimCurrency" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactCurrencyRate_DimCurrency" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactInternetSales_DimCurrency" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactResellerSales_DimCurrency" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_DimCustomer_DimGeography" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactInternetSales_DimCustomer" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactSurveyResponse_CustomerKey" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactCallCenter_DimDate" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactCurrencyRate_DimDate" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactFinance_DimDate" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactInternetSales_DimDate" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactInternetSales_DimDate1" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactInternetSales_DimDate2" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactProductInventory_DimDate" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactResellerSales_DimDate" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactResellerSales_DimDate1" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactResellerSales_DimDate2" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactSalesQuota_DimDate" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactSurveyResponse_DateKey" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_DimDepartmentGroup_DimDepartmentGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactFinance_DimDepartmentGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_DimEmployee_DimEmployee" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_DimEmployee_DimSalesTerritory" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactResellerSales_DimEmployee" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactSalesQuota_DimEmployee" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_DimGeography_DimSalesTerritory" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_DimReseller_DimGeography" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_DimOrganization_DimOrganization" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactFinance_DimOrganization" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_DimProduct_DimProductSubcategory" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactInternetSales_DimProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactProductInventory_DimProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactResellerSales_DimProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_DimProductSubcategory_DimProductCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactInternetSales_DimPromotion" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactResellerSales_DimPromotion" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactResellerSales_DimReseller" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactInternetSales_DimSalesTerritory" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactResellerSales_DimSalesTerritory" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FK_FactFinance_DimScenario" ManuallyRouted="false" />
+        <AssociationConnector Association="AdventureWorksDW2017Model.FactInternetSalesReason" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

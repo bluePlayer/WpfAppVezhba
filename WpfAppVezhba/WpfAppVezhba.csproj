@@ -34,8 +34,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -54,6 +61,36 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdventureWorks2017.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdventureWorks2017.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorks2017.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdventureWorks2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorks2017.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdventureWorks2017.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorksTest.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdventureWorksTest.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorksTest.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdventureWorksTest.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdventureWorksTest.edmx</DependentUpon>
+    </Compile>
     <Compile Include="CalendarWindow.xaml.cs">
       <DependentUpon>CalendarWindow.xaml</DependentUpon>
     </Compile>
@@ -63,13 +100,127 @@
     <Compile Include="ComboBoxWindow.xaml.cs">
       <DependentUpon>ComboBoxWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseLog.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
     <Compile Include="DenOdSedmica.cs" />
+    <Compile Include="DimAccount.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DimAccount_FactFinance_View1.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DimCurrency.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DimCustomer.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DimDate.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DimDepartmentGroup.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DimEmployee.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DimGeography.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DimOrganization.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DimProduct.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DimProductCategory.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DimProductSubcategory.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DimPromotion.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DimReseller.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DimReseller_DimGeogrpahy_FactResellerSales_View1.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DimSalesReason.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DimSalesTerritory.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DimScenario.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FactAdditionalInternationalProductDescription.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FactCallCenter.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FactCurrencyRate.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FactFinance.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FactInternetSales.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FactProductInventory.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FactResellerSales.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FactSalesQuota.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FactSurveyResponse.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
     <Compile Include="Konstanti.cs" />
     <Compile Include="Notifier.cs" />
     <Compile Include="OdrabotenoVremePoZadacha.cs" />
+    <Compile Include="ProspectiveBuyer.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
     <Compile Include="Sedmica.cs" />
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>AdventureWorks2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>AdventureWorks2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQLCMD_Test_Procedure_Result.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>AdventureWorks2017.tt</DependentUpon>
+    </Compile>
     <Compile Include="Utils.cs" />
+    <Compile Include="vAssocSeqLineItems.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vAssocSeqOrders.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vDMPrep.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
     <Compile Include="Vezhba.cs" />
+    <Compile Include="vTargetMail.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vTimeSeries.cs">
+      <DependentUpon>AdventureWorksTest.tt</DependentUpon>
+    </Compile>
     <Page Include="CalendarWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -117,6 +268,21 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="AdventureWorks2017.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AdventureWorks2017.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="AdventureWorks2017.edmx.diagram">
+      <DependentUpon>AdventureWorks2017.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="AdventureWorksTest.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AdventureWorksTest.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="AdventureWorksTest.edmx.diagram">
+      <DependentUpon>AdventureWorksTest.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -124,6 +290,31 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdventureWorks2017.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AdventureWorks2017.Context.cs</LastGenOutput>
+      <DependentUpon>AdventureWorks2017.edmx</DependentUpon>
+    </Content>
+    <Content Include="AdventureWorks2017.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AdventureWorks2017.edmx</DependentUpon>
+      <LastGenOutput>AdventureWorks2017.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdventureWorksTest.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AdventureWorksTest.edmx</DependentUpon>
+      <LastGenOutput>AdventureWorksTest.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdventureWorksTest.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AdventureWorksTest.edmx</DependentUpon>
+      <LastGenOutput>AdventureWorksTest.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
