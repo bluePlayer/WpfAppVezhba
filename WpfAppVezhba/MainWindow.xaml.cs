@@ -18,6 +18,21 @@ namespace WpfAppVezhba
             
             vezhba = new Vezhba();
             DataContext = vezhba;
+            /*
+            DimScenario dc1 = new DimScenario();
+            dc1.ScenarioName = "Vlad";
+
+            DimScenario dc2 = new DimScenario();
+            dc2.ScenarioName = "VladTest";
+
+            AdventureWorksDW2017Entities adventureWorksDW2017Entities = new AdventureWorksDW2017Entities();
+            adventureWorksDW2017Entities.DimScenario.Add(dc1);
+            adventureWorksDW2017Entities.SaveChanges();
+
+            AdventureWorksTestEntities adventureWorksTestEntities = new AdventureWorksTestEntities();
+            adventureWorksTestEntities.DimScenario.Add(dc2);
+            adventureWorksTestEntities.SaveChanges();
+            */
         }
 
         private void smeniNedela_Click(object sender, RoutedEventArgs e)
