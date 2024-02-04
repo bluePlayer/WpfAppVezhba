@@ -6,12 +6,27 @@
         xmlns:local="clr-namespace:WpfAppVezhba"
         mc:Ignorable="d"
         Title="MainWindow" Height="1024" Width="800">
-    <Window.Resources>
+    <!-- 
+    Najednostavno, dodaj FontSize="20" vo window tagot.
+    https://stackoverflow.com/questions/893428/wpf-global-font-size 
+    -->
+        <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="ComboBoxResources.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="{x:Type Control}" x:Key="baseStyle">
+                <Setter Property="FontSize" Value="20" />
+            </Style>
+            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource baseStyle}"/>
+            <Style TargetType="{x:Type Label}" BasedOn="{StaticResource baseStyle}"/>
+            <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource baseStyle}"/>
+            <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource baseStyle}"/>
+            <Style TargetType="{x:Type Calendar}" BasedOn="{StaticResource baseStyle}"/>
+            <!-- ComboBox, RadioButton, CheckBox, etc... -->
         </ResourceDictionary>
+
+            
     </Window.Resources>
     <Grid>
         <StackPanel Orientation="Vertical">
